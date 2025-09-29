@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { PaymentController } from './presentation/controllers/payment.controller';
 import { WebhookController } from './presentation/controllers/webhook.controller';
 import { PaymentSchema } from './infrastructure/database/entities/payment.schema';
@@ -27,12 +25,10 @@ import { getDatabaseConfig } from './infrastructure/config/database.config';
     TypeOrmModule.forFeature([PaymentSchema]),
   ],
   controllers: [
-    AppController,
     PaymentController,
     WebhookController,
   ],
   providers: [
-    AppService,
     {
       provide: 'IPaymentRepository',
       useClass: PaymentRepository,
