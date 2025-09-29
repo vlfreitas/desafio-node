@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CreatePaymentUseCase } from './create-payment.use-case';
-import { IPaymentRepository } from '../../domain/repositories/payment.repository.interface';
+import type { IPaymentRepository } from '../../domain/repositories/payment.repository.interface';
 import { MercadoPagoService } from '../../infrastructure/http/mercado-pago.service';
 import { PaymentMethod } from '../../domain/enums/payment-method.enum';
 import { PaymentStatus } from '../../domain/enums/payment-status.enum';

@@ -19,10 +19,9 @@ export class WebhookController {
 
     try {
       if (body.type === 'payment') {
-        const paymentId = body.data?.id;
         const externalReference = body.data?.external_reference;
 
-        if (externalReference && paymentId) {
+        if (externalReference) {
           let status: PaymentStatus;
 
           switch (body.data.status) {

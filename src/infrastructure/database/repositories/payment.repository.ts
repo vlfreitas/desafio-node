@@ -33,16 +33,6 @@ export class PaymentRepository implements IPaymentRepository {
     return schema ? this.toDomain(schema) : null;
   }
 
-  async findByCpf(cpf: string): Promise<Payment[]> {
-    const schemas = await this.repository.find({ where: { cpf } });
-    return schemas.map(schema => this.toDomain(schema));
-  }
-
-  async findByPaymentMethod(paymentMethod: PaymentMethod): Promise<Payment[]> {
-    const schemas = await this.repository.find({ where: { paymentMethod } });
-    return schemas.map(schema => this.toDomain(schema));
-  }
-
   async findAll(filters?: { cpf?: string; paymentMethod?: PaymentMethod }): Promise<Payment[]> {
     const query = this.repository.createQueryBuilder('payment');
 
