@@ -10,9 +10,7 @@ import { PaymentStatus } from '../../domain/enums/payment-status.enum';
 describe('PaymentController', () => {
   let controller: PaymentController;
   let createPaymentUseCase: jest.Mocked<CreatePaymentUseCase>;
-  let updatePaymentUseCase: jest.Mocked<UpdatePaymentUseCase>;
   let getPaymentUseCase: jest.Mocked<GetPaymentUseCase>;
-  let listPaymentsUseCase: jest.Mocked<ListPaymentsUseCase>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -47,9 +45,7 @@ describe('PaymentController', () => {
 
     controller = module.get<PaymentController>(PaymentController);
     createPaymentUseCase = module.get(CreatePaymentUseCase);
-    updatePaymentUseCase = module.get(UpdatePaymentUseCase);
     getPaymentUseCase = module.get(GetPaymentUseCase);
-    listPaymentsUseCase = module.get(ListPaymentsUseCase);
   });
 
   describe('createPayment', () => {
@@ -65,6 +61,7 @@ describe('PaymentController', () => {
         id: 'test-id',
         ...dto,
         status: PaymentStatus.PENDING,
+        mercadoPagoPaymentId: undefined,
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -98,6 +95,7 @@ describe('PaymentController', () => {
         amount: 100.50,
         paymentMethod: PaymentMethod.PIX,
         status: PaymentStatus.PENDING,
+        mercadoPagoPaymentId: undefined,
         createdAt: new Date(),
         updatedAt: new Date(),
       };
