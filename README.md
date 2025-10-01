@@ -255,20 +255,3 @@ DATABASE_PASSWORD=secure-password
 MERCADO_PAGO_ACCESS_TOKEN=PROD-your-token
 BASE_URL=https://your-domain.com
 ```
-
-## Melhorias Futuras
-
-- [ ] Implementação do Temporal.io para workflows robustos
-- [ ] Cache com Redis para melhor performance
-- [ ] Rate limiting para segurança
-- [ ] Métricas e observabilidade
-- [ ] Autenticação e autorização
-- [ ] Validação mais robusta de CPF
-- [ ] Retry policy para integrações externas
-
-## Suporte
-
-Para dúvidas ou suporte, entre em contato através dos e-mails:
-- pedro.costa@exa.com.br
-- alvaro.sousa@exa.com.br
-- capitani15@exa.com.br
